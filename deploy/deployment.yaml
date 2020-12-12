@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: classifier
+  labels:
+    app: classifier
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: classifier
+  template:
+    metadata:
+      labels:
+        app: classifier
+      annotations:
+        linkerd.io/inject: enabled
+        config.linkerd.io/proxy-cpu-request: 1m
+        config.linkerd.io/proxy-memory-request: 10Mi
+    spec:
+      imagePullSecrets:
+        - name: ghcr
+      containers:
+        - name: classifier
+          image: busybox
+          command:
+            - /app/servicebin
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - sleep
+                  - 5s
+          livenessProbe:
+            exec:
+              command:
+                - /app/grpc_health_probe
+                - -addr=:8080
+          readinessProbe:
+            exec:
+              command:
+                - /app/grpc_health_probe
+                - -addr=:8080
+          ports:
+            - containerPort: 8080
+              name: grpc
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 17m
+              memory: 490Mi
+            limits:
+              cpu: "1.5"
+              memory: 1.5Gi
+          env:
+            - name: GRPC_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: port
+                  name: grpc
+            - name: LOGLEVEL
+              value: error
