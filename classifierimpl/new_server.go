@@ -1,7 +1,7 @@
 package classifierimpl
 
 import (
-	"github.com/nnqq/scr-classifier/classifier"
+	"github.com/leaq-ru/classifier/classifier"
 	"github.com/rs/zerolog"
 )
 

@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/nnqq/scr-classifier/classifier"
-	"github.com/nnqq/scr-classifier/classifierimpl"
-	"github.com/nnqq/scr-classifier/config"
-	"github.com/nnqq/scr-classifier/logger"
-	graceful "github.com/nnqq/scr-lib-graceful"
-	pbClassifier "github.com/nnqq/scr-proto/codegen/go/classifier"
+	"github.com/leaq-ru/classifier/classifier"
+	"github.com/leaq-ru/classifier/classifierimpl"
+	"github.com/leaq-ru/classifier/config"
+	"github.com/leaq-ru/classifier/logger"
+	graceful "github.com/leaq-ru/lib-graceful"
+	pbClassifier "github.com/leaq-ru/proto/codegen/go/classifier"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/health"
 	"google.golang.org/grpc/health/grpc_health_v1"

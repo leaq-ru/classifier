@@ -1,8 +1,8 @@
 package classifierimpl
 
 import (
-	"github.com/nnqq/scr-classifier/classifier"
-	pbClassifier "github.com/nnqq/scr-proto/codegen/go/classifier"
+	"github.com/leaq-ru/classifier/classifier"
+	pbClassifier "github.com/leaq-ru/proto/codegen/go/classifier"
 	"github.com/rs/zerolog"
 )
 

@@ -2,7 +2,7 @@ package classifierimpl
 
 import (
 	"context"
-	pbClassifier "github.com/nnqq/scr-proto/codegen/go/classifier"
+	pbClassifier "github.com/leaq-ru/proto/codegen/go/classifier"
 )
 
 func (s *server) Predict(

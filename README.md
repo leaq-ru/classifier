@@ -1,1 +1,1 @@
-# scr-classifier
+https://github.com/leaq-ru/about
